@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Underdog&display=swap');
+@import "tailwindcss";
+
+body{
+    font-family: 'Outfit', sans-serif;
+}
+
+/* GICS Logistics – Premium Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4F4F8; /* Same as page background */
+  border-radius: 12px;
+  box-shadow: inset 0 0 8px rgba(37, 37, 123, 0.15); /* subtle #25257B shadow */
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #25257B, #E61316); /* Deep Blue → Red gradient */
+  border-radius: 12px;
+  border: 2px solid #F4F4F8;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #1a1a5e, #c11214); /* Darker on hover */
+  border-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(230, 19, 22, 0.4);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox Support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #E61316 #F4F4F8; /* Red thumb + light track */
+}
+
+/* Optional: Make it even more premium on dark mode or specific pages */
+.dark::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #E61316, #25257B);
+}
