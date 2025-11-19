@@ -37,7 +37,7 @@ const Footer = () => {
           >
             <img src={assets.logo3} className="w-32 rounded-full" alt="" />
             <h3 className="text-2xl font-bold mb-4 text-[#E61316]">
-              GREAT INDIA CARDO SERVICE
+              GREAT INDIA CARGO SERVICE
             </h3>
 
             <p className="text-[#FBFAFB] text-sm leading-relaxed max-w-xs text-center md:text-left opacity-90">
@@ -179,7 +179,7 @@ const Footer = () => {
           className="mt-8 pt-8 border-t border-[#1A1A66] text-center"
         >
           <p className="text-[#FBFAFB] text-sm opacity-90">
-            &copy; {new Date().getFullYear()} GREAT INDIA CARDO SERVICE. All rights reserved.
+            &copy; {new Date().getFullYear()} GREAT INDIA CARGO SERVICE. All rights reserved.
           </p>
         </motion.div>
 

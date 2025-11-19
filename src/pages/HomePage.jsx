@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const slides = [
   {
     image: assets.img1,
-    title: "Welcome to GREAT INDIA CARDO SERVICE",
+    title: "Welcome to GREAT INDIA CARGO SERVICE",
     subtitle: "You Ask, We Deliver……..No Excuses",
   },
   {
@@ -250,7 +250,7 @@ const HomePage = () => {
             className="text-lg mb-8 text-center max-w-2xl mx-auto leading-relaxed"
             style={{ color: "#374151" }}
           >
-            At GREAT INDIA CARDO SERVICE, we understand that every business
+            At GREAT INDIA CARGO SERVICE, we understand that every business
             has unique logistics needs. That’s why we offer personalized quotes
             tailored to your specific requirements. Whether you need road
             transport, warehousing, or a comprehensive logistics solution, we’re
@@ -492,7 +492,7 @@ const HomePage = () => {
             className="text-lg mb-12 text-center max-w-3xl mx-auto leading-relaxed"
             style={{ color: "#374151" }}
           >
-            GREAT INDIA CARDO SERVICE is a premier domestic logistics
+            GREAT INDIA CARGO SERVICE is a premier domestic logistics
             company in India, committed to delivering reliable and efficient
             transportation solutions to businesses nationwide. With a deep
             understanding of the complexities of logistics, we have built a
@@ -518,7 +518,7 @@ const HomePage = () => {
               </motion.h3>
               <motion.p variants={childVariants} className="text-gray-700">
                 Established with a vision to provide top-notch logistics
-                services, GREAT INDIA CARDO SERVICE has grown into a trusted
+                services, GREAT INDIA CARGO SERVICE has grown into a trusted
                 partner for businesses across various sectors. From small
                 enterprises to large corporations, our clients rely on us to
                 ensure that their goods are transported safely, swiftly, and
@@ -721,7 +721,7 @@ const HomePage = () => {
             className="text-xl italic mb-6 max-w-3xl mx-auto leading-relaxed"
             style={{ color: "#374151" }}
           >
-            “GREAT INDIA CARDO SERVICE has been a game-changer for our
+            “GREAT INDIA CARGO SERVICE has been a game-changer for our
             supply chain. Their on-time delivery and excellent customer service
             have made them our go-to logistics partner. We’ve seen a significant
             improvement in our operations since we started working with them.”

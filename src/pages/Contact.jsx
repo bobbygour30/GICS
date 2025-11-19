@@ -273,7 +273,7 @@ const ContactUs = () => {
               className="rounded-2xl overflow-hidden shadow-2xl border-8 border-[#25257B]/10"
             >
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.551075446848!2d77.21966351508331!3d28.67000128239896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd5a5a5a5a5a%3A0x5a5a5a5a5a5a5a5a!2sTis%20Hazari%20Court!5e0!3m2!1sen!2sin!4v1696341234567!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3683.985627168562!2d88.35586507530067!3d22.57964087948672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjLCsDM0JzQ2LjciTiA4OMKwMjEnMzAuNCJF!5e0!3m2!1sen!2sin!4v1763535683068!5m2!1sen!2sin"
                 width="100%"
                 height="500"
                 style={{ border: 0 }}
@@ -290,7 +290,7 @@ const ContactUs = () => {
       {/* Footer Tagline */}
       <div className="py-12 text-center bg-[#25257B] text-white">
         <p className="text-xl font-semibold">
-          Trusted by Thousands • Moving India Forward Since 1990
+          Trusted by Thousands • Moving India Forward Since 2015
         </p>
       </div>
     </div>

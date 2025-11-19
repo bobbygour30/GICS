@@ -65,7 +65,7 @@ const About = () => {
   };
 
   const faqItems = [
-    { question: "Why is GREAT INDIA CARDO SERVICE reliable?", answer: "We deliver on our promises with a proven track record of safety and on-time deliveries." },
+    { question: "Why is GREAT INDIA CARGO SERVICE reliable?", answer: "We deliver on our promises with a proven track record of safety and on-time deliveries." },
     { question: "How do we tailor solutions for your business?", answer: "We offer customized logistics solutions designed around your business needs." },
     { question: "What technology do we use?", answer: "We use modern tracking, routing, and planning tools for complete transparency." },
     { question: "How extensive is our network?", answer: "We provide nationwide logistics coverage for businesses of all sizes." },
@@ -92,7 +92,7 @@ const About = () => {
           className="relative z-10 text-center text-white px-4"
         >
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            About GREAT INDIA CARDO SERVICE
+            About GREAT INDIA CARGO SERVICE
           </h1>
           <p className="text-lg md:text-xl font-light max-w-2xl mx-auto">
             Your trusted partner for seamless logistics solutions across India.
@@ -122,7 +122,7 @@ const About = () => {
             variants={childVariants}
             className="text-lg mb-12 text-center max-w-3xl mx-auto leading-relaxed text-gray-700"
           >
-            GREAT INDIA CARDO SERVICE delivers reliable and customer-focused logistics solutions throughout India.
+            GREAT INDIA CARGO SERVICE delivers reliable and customer-focused logistics solutions throughout India.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
