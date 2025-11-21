@@ -251,7 +251,14 @@ const ContactUs = () => {
                   <div className="text-3xl"><FaPhone /></div>
                   <div>
                     <p className="font-semibold">Phone</p>
-                    <a href="tel:+916289471244" className="text-2xl font-bold hover:underline">+91 62894 71244</a>
+                    <a href="tel:+919088988812" className="text-2xl font-bold hover:underline">+919088988812</a>
+                  </div>
+                </div>
+                <div className="flex items-center gap-5">
+                  <div className="text-3xl"><FaPhone /></div>
+                  <div>
+                    <p className="font-semibold">Phone</p>
+                    <a href="tel:+919088788812" className="text-2xl font-bold hover:underline">+919088788812</a>
                   </div>
                 </div>
 
