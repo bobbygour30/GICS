@@ -1,65 +1,172 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// --- NEW STATIC DATA FOR BOOKING HUBS ---
+const bookingHubs = {
+  Burrabazar: [
+    {
+      title: "COLOOTOLA",
+      address: "71/1 MAULANA SHAUKAT ALI STREET, OPPOSITE ISLAMIA HOTEL, KOLKATA – 700073",
+      contacts: [
+        { name: "RAKESH", number: "+91 8910123817" },
+        { name: "GODOWN", number: "+91 7584039501" }
+      ],
+      bookingStations: ["KALIACHAK", "MALDA", "RAIGANJ", "KALIAGANJ"]
+    },
+    {
+      title: "CENTRAL AVENUE",
+      address: "112 B MAHATMA GANDHI ROAD, NEAR SHAHI GUEST HOUSE, KOLKATA – 700073",
+      contacts: [
+        { name: "PRAHLAD", number: "+91 8017306042" },
+        { name: "GODOWN", number: "+91 9073216401" }
+      ],
+      bookingStations: ["DALKHOLA", "KISHANGANJ", "ISLAMPUR"]
+    },
+    {
+      title: "STRAND ROAD",
+      address: "67/10 STRAND ROAD AHIRITOLA NIMTALA MORE, NEAR MANGLI SHADI BARI, KOLKATA – 700006",
+      contacts: [
+        { name: "AZIM", number: "+91 9088788812" },
+        { name: "GODOWN", number: "+91 9088016188" }
+      ],
+      bookingStations: {
+        BENGAL: ["JALPAIGURI", "MAYNAGURI", "MALBAZAR", "DHUPGURI", "FALAKATA", "COOCHBEHAR", "DINHATA", "TOOFANGANJ", "MATHABHANGA", "ALIPURDUAR", "BAROBISHA", "KAMAKHYAGURI", "HAMILTONGANJ"],
+        ASSAM: ["DHUBRI", "BILASIPARA", "BONGAIGAON", "BARPETA ROAD", "HATSINGHMARI", "MANKACHAR", "GOALPARA"]
+      }
+    }
+  ],
+  MetiabruzHaat: [
+    {
+      title: "RAILWAY LINE OPPOSITE AUTO STAND",
+      address: "NEAR GIRLS SCHOOL METIABRUZ",
+      contacts: [{ name: "General", number: "+91 9088016189" }],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    },
+    {
+      title: "RAIL LINE MEETHA TALAB",
+      address: "NEAR LITTLE DOLL CLOTHING STORE METIABRUZ",
+      contacts: [{ name: "MUKESH", number: "+91 7596022366" }],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    },
+    {
+      title: "ABM HAT 2ND FLOOR",
+      address: "METIABRUZ",
+      contacts: [
+        { name: "DEEPAK RAJAK", number: "+91 7598048489" },
+        { name: "BABU", number: "+91 7596022369" }
+      ],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    }
+  ],
+  HowrahHaat: [
+    {
+      title: "BANKIM SETU",
+      address: "UNDER BANKIM SETU GODOWN -5 NEAR BOXING MATH, HOWRAH – 711101",
+      contacts: [
+        { name: "DEEPAK RAJAK", number: "+91 7595048489" },
+        { name: "DEEPAK PASWAN", number: "+91 9088016190" }
+      ],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    },
+    {
+      title: "NEW SEAL LANE",
+      address: "28 NEW SEAL LANE, HOWRAH - 711101",
+      contacts: [{ name: "DEEPAK RAJAK", number: "+91 7595048489" }],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    },
+    {
+      title: "NABIN HAAT",
+      address: "13 NITYADHAN MUKHERJEE ROAD",
+      contacts: [
+        { name: "NITU DA (NABINA BOOKING AGENCY)", number: "+91 9831960539" },
+        { name: "KANU DA (KAMAKHYA BOOKING AGENCY)", number: "+91 9831217454" },
+        { name: "TITU DA (LOKENATH BOOKING AGENCY)", number: "+91 9836506010" },
+        { name: "DUTTA DA (DUTTA TRADERS)", number: "+91 9903483003" },
+        { name: "PATHIK", number: "+91 8327367224" }
+      ],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    }
+  ],
+  Shalimar: [
+    {
+      title: "SHALIMAR",
+      address: "12 PTR SIDDING SHALIMAR KOYLA DEPOT, HOWRAH – 711102",
+      contacts: [{ name: "TINKU", number: "+91 8013732334" }],
+      bookingStations: ["ALL BENGAL", "BIHAR", "ASSAM"]
+    }
+  ]
+};
+
 const Network = () => {
   const [selectedLocation, setSelectedLocation] = useState(null);
 
+  // --- EXISTING OFFICES DATA (UPDATED IN PREVIOUS TURNS) ---
   const offices = {
     BiharDelivery: [
-      { location: "ARARIA COURT", name: "SANJAY BHAGAT", address: "STATION ROAD NEAR MARWARI DHARMSALA, ARARIA COURT-854311", contacts: "7004198649" },
-      { location: "FORBESGANJ", name: "MANOJ KUMAR", address: "KALI MELA ROAD, WARD NO 1, FORBESGANJ-854318", contacts: "8863981428 / 7004322665" },
-      { location: "GULABBAGH", name: "AJAY YADAV", address: "GULABBAGH", contacts: "7870141478" },
-      { location: "KISHANGANJ", name: "RAJKUMAR MONDAL", address: "SANCHALAL, BARELA COMPLEX, CALTAX CHOWK, 3 NO. RAIL GATE, BIHAR-855107", contacts: "7604021111 / 9473333349" },
-      { location: "MADHEPURA", name: "DHARMENDRA KUMAR", address: "PURAB BY PASS ROAD, NEAR KESHAB KANEYA VIDYALAYA, BIHAR-852113", contacts: "7352321467 / 7903706272" },
-      { location: "MURLIGANJ", name: "HEMANT", address: "MURLIGANJ", contacts: "7979011745" },
+      { location: "ARARIA COURT", name: "SANJAY BHAGAT", address: "STATION ROAD NEAR MARWARI DHARMSALA, ARARIA COURT- 854311", contacts: "7091297322 / 9472397322" },
+      { location: "FORBESGANJ", name: "MANOJ KUMAR", address: "KALI MELA ROAD, WARD NO 1, FORBESGANJ - 854318", contacts: "8863981428 / 7004322665" },
+      { location: "GULABBAGH", name: "AJAY YADAV", address: "SONALI CHOWK MOHANLAL BAJAJ GIRL SCHOOL GULABBAGH", contacts: "7870141478" },
+      { location: "KATIHAR", name: "ROSHAN MISHRA", address: "OLD MILL CAMPUS, PATEL CHOWK, BIHAR-854105", contacts: "9031670673 / 8340164966" },
+      { location: "KISHANGANJ", name: "RAJKUMAR MONDAL", address: "SANCHALAL, BARELA COMPLEX, CALTAX CHOWK, 3 NO. RAIL GATE, BIHAR-855107", contacts: "7604021111 / 7488744522" },
+      { location: "MADHEPURA", name: "DHARMENDRA KUMAR", address: "PURAB BY PASS ROAD, NEAR KESHAB KANEYA VIDYALAYA, BIHAR-852113", contacts: "7352321467" },
+      { location: "MURLIGANJ", name: "HEMANT KUMAR", address: "KASHIPUR ROAD NEAR CENTRAL BANK MURLIGANJ", contacts: "7979011745" },
       { location: "SAHARSA", name: "NARESH KUMAR DAHLAN", address: "MIRTOLA, NEAR DR B N MISHRA, BIHAR-852201", contacts: "6200408570 / 9431288037" },
       { location: "SUPAUL", name: "ANUJ KUMAR", address: "PATEL CHOWK, WARD NO.26, BIHAR-852131", contacts: "9006444568" },
-      { location: "SIMRAHI", name: "TRIPURARI PRASAD KARN", address: "SIMRAHI BAZAR, DHARAMPATTI, N.H.-27 NEAR LAXMI DHARAM KANTA (SUPAUL)", contacts: "8825270756 / 9572038647" },
+      { location: "KHAGARIA", name: "", address: "", contacts: "" },
+      { location: "BAKHRI", name: "", address: "", contacts: "" },
+      { location: "ROSERA", name: "MUKESH KUMAR", address: "JAIL ROAD ROSERA", contacts: "7979765322" },
+      { location: "BEGUSARAI", name: "MUKESH KUMAR / RAKESH TIWARI", address: "NH-31 OPPOSITE GYAN BHARTI SCHOOL BEGUSARAI", contacts: "7004193655 / 7004226650" },
+      { location: "SIMRAHI", name: "TRIPURARI PRASAD KARN", address: "SIMRAHI BAZAR, DHARAMPATTI, N.H.-27 NEAR LAXMI DHARAM KANTA (SUPAUL)", contacts: "8825270756" },
+      { location: "DARBHANGA", name: "", address: "", contacts: "" },
+      { location: "SAMSTIPUR", name: "ANANT KUMAR TIWARI", address: "ROSERA BYPASS ROAD SANDHYA UTSAV CLUB SAMASTIPUR", contacts: "9798963369" },
+      { location: "DALSINGH SARAI", name: "", address: "", contacts: "" },
+      { location: "JAYNAGAR", name: "", address: "", contacts: "" },
       { location: "BANMANKHI", name: "N.P. BHAGAT", address: "BAL BHARTI ROAD, WARD NO 5, BANMANKHI, PURNIA, BIHAR-854202", contacts: "9934487361" },
       { location: "TRIVENI GANJ", name: "DHARMENDRA KUMAR", address: "BANSI CHOWK (UNDER DHARMENDRA KUMAR – MADHEPURA)", contacts: "7352321467 / 7903706272" },
     ],
-
+  
     WestBengalDelivery: [
-      { location: "ALIPURDUAR", name: "BABLU SAHA", address: "BF ROAD, PURAN BAZAR, NEAR AMUL FACTORY, ALIPURDUAR, WEST BENGAL-736121", contacts: "9932384791 / 7596022369" },
+      { location: "ALIPURDUAR", name: "BABLU SAHA", address: "BF ROAD, PURAN BAZAR, NEAR AMUL FACTORY, ALIPURDUAR, WEST BENGAL-736121", contacts: "GODOWN- 7596022369 / 9932384791" },
       { location: "BAROBISHA", name: "BABLU SAHA", address: "HOWLI PATTI, BAROBISHA, WEST BENGAL-736207", contacts: "8637350261" },
-      { location: "COOCHBIHAR", name: "RAJU SHARMA", address: "DURGABARI MORE, SILVER JUBILEE ROAD, WEST BENGAL-736101", contacts: "7595048484 / 03582225370" },
+      { location: "COOCHBIHAR", name: "RAJU SHARMA", address: "DURGABARI MORE, SILVER JUBLEE ROAD, WEST BENGAL-736101", contacts: "GODOWN- 7595048484 / 9563210990" },
       { location: "DALKHOLA", name: "PARITOSH BISWAS", address: "MALLICKPUR MORE, DALKHOLA, WEST BENGAL-733201", contacts: "8250860792" },
-      { location: "DHUPGURI", name: "DEBOJIT DUTTA", address: "FALLPATTY GODOWN, NEAR JALPAIGURI BUS TERMINUS, WEST BENGAL-735210", contacts: "7595048482 / 8250434984" },
-      { location: "DINHATA", name: "PANKAJ BONIK", address: "STATION ROAD, DINHATA, WEST BENGAL-736135", contacts: "7595048485 / 8637090996" },
+      { location: "DHUPGURI", name: "DEBOJIT DUTTA", address: "FALLPATTY GODOWN, NEAR JALPAIGURI BUS TERMINUS, WEST BENGAL-735210", contacts: "GODOWN- 7595048482 / 8250434984" },
+      { location: "DINHATA", name: "PANKAJ BONIK", address: "STATION ROAD, DINHATA, WEST BENGAL-736135", contacts: "GODOWN- 7595048485 / 8637090996" },
       { location: "FALAKATA", name: "PRABIR GHOSH", address: "SUBHASH PALLY, DIST- ALIPURDUAR, WEST BENGAL-735211", contacts: "7595048483" },
-      { location: "ISLAMPUR", name: "CHANDAN CHOWDHURY", address: "PURATAN PALLY, MONDAL GOLA, NEAR COPARATI CINEMA HALL, ISLAMPUR-733202", contacts: "7001934985" },
-      { location: "JALPAIGURI", name: "RAKESH PRASAD", address: "SAMAJ PARA, NEAR RABINDRA BHAWAN, WEST BENGAL-735101", contacts: "7595048480 / 9832350426" },
-      { location: "KALIACHAK", name: "MD MOHIDUL HAQUE", address: "BALIDANGA MORE, NEAR KATHFARA MILL, KALIACHAK-732201", contacts: "9064795800" },
+      { location: "ISLAMPUR", name: "CHANDAN CHOWDHURY", address: "PURATAN PALLY, MONDAL GOLA, NEAR COPARATI CINEMA HALL, ISLAMPUR, 733202", contacts: "8617035502" },
+      { location: "JALPAIGURI", name: "RAKESH PRASAD", address: "SAMAJ PARA, NEAR RABINDRA BHAWAN, WEST BENGAL-735101", contacts: "GODOWN- 7595048480 / 6294296001" },
+      { location: "KALIACHAK", name: "MD MOHIDUL HAQUE", address: "BALIDANGA MORE , NEAR KATHFARA MILL, KALIACHAK-732201", contacts: "GODOWN- 7890003412 / 7934926680" },
       { location: "KALIAGANJ", name: "UTTAM SAHA", address: "SOUTH AKHANAGAR NETAJI PALLY, WEST BENGAL-733129", contacts: "9434965019" },
-      { location: "MAINAGURI", name: "SAMRAT SAHA", address: "SUBASH NAGAR, JALPESH ROAD NEAR SAGARDEEP CLUB, MAINAGURI-735224", contacts: "9733154414" },
+      { location: "MAINAGURI", name: "SAMRAT SAHA", address: "SUBASH NAGAR, JALPESH ROAD NEAR SAGARDEEP CLUB, MAINAGURI- 735224", contacts: "9733154414" },
       { location: "MALBAZAR", name: "RATAN BANIK", address: "DAKBANGALA MATH NEAR POSHU HOSPITAL, WEST BENGAL-735221", contacts: "8348361469 / 9475807854" },
       { location: "MALDA", name: "PULAK KR GHOSH", address: "M K ROAD NEAR HDFC BANK, MALDA-732101", contacts: "9775858867 / 7890003512" },
-      { location: "MATHABHANGA", name: "MALAY SAHA", address: "PASCHIMPARA NEAR UDYON SANGHA CLUB, WEST BENGAL-736148", contacts: "7595048487 / 9932171819" },
-      { location: "RAIGANJ", name: "SANKAR SARKAR LAL CHAND GOAP", address: "NH-34 OPP SMOKE CENTRE, RAIGANJ, WEST BENGAL-733134", contacts: "7890003612 / 9609881852" },
-      { location: "TUFANGANJ", name: "TAPAN PAUL", address: "C/O PRIYANKA BASTRALAYA, READYMADE PATTI, TUFANGANJ", contacts: "9434589705 / 9647810383" },
+      { location: "MATHABHANGA", name: "MALAY SAHA", address: "PASCHIMPARA NEAR UDYON SANGHA CLUB, WEST BENGAL-736148", contacts: "GODOWN- 7595048487 / 9932171819" },
+      { location: "RAIGANJ", name: "SANKAR SARKAR", address: "NH-34 OPP SMOKE CENTRE, RAIGANJ, WEST BENGAL-733134", contacts: "7890003612" },
+      { location: "TUFANGANJ", name: "TAPAN PAUL", address: "C/O PRIYANKA BASTRALAYA , READYMADE PATTI, TUFANGANJ -", contacts: "9434589705 / 9647810383" },
     ],
-
+  
     AssamDelivery: [
-      { location: "DHUBRI", name: "DILIPSINGH", address: "KASAIPATTI CHARMAN ROAD WARD NO- 3 DHUBRI - 783381", contacts: "9954218391 / 7896728510" },
-      { location: "BILASIPARA", name: "SUROJIT", address: "SUBHASPALLY ROAD, NEAR SHIV MANDIR, BILASIPARA", contacts: "8822986940" },
-      { location: "GOALPARA", name: "PANDIT JI", address: "BURRABAZAR MARWARI THAKURBARI MANDIR GOALPARA -783101", contacts: "7002089858" },
+      { location: "DHUBRI", name: "DILIPSINGH", address: "KASAIPATTI CHARMAN ROAD WARD NO- 3 DHUBRI - 783381", contacts: "9954218391 / 8638522296" },
+      { location: "BILASIPARA", name: "DEEPAK DAS", address: "BILASIPARA PURONI BAZAR NEAR COSMO BAZAR COLLEGE ROAD BILASIPARA", contacts: "8638733140" },
+      { location: "GOALPARA", name: "RAKESH SHARMA", address: "BURRABAZAR MARWARI THAKURBARI MANDIR GOALPARA -783101", contacts: "7002089858" },
       { location: "MANKACHAR", name: "ANOWAR HUSSAIN", address: "BEPARIPARA MANKACHAR -783131", contacts: "9957091095" },
       { location: "HATSINGIMARI", name: "ZAKIR HUSSAIN", address: "KHARUABANDA, HATSINGHMARI- 783135", contacts: "8638876093" },
       { location: "ALAMGANJ", name: "SAINOOR ALAM", address: "ALAMGANJ BAZAR ALAMGANJ 783339", contacts: "7002345234" },
       { location: "BARPETA ROAD", name: "PRANAB SAHA", address: "MANASHPUR, WARD NO 4, NEAR ELECTRICITY OFFICE, BARPETA ROAD", contacts: "9435087906" },
       { location: "BONGAIGAON", name: "MANIK DEBNATH", address: "BT ROAD, NEAR KANISHK HOTEL BONGAIGAON - 783380", contacts: "9954358485" },
-      { location: "DHEKIAJULI", name: "RAJIB SAHA", address: "MAIN ROAD DHEKIAJULI, NEAR KRISHNA HOTEL DHEKIAJULI- 784110", contacts: "8638726404" },
+      { location: "DHEKIAJULI", name: "RAJIB SAHA", address: "MAIN ROAD DHEKIAJULI, NEAR KRISHNA HOTEL DHEKIAJULI-784110", contacts: "8638726404" },
       { location: "KRISHNAI", name: "", address: "", contacts: "9957625575" },
-      { location: "NAWGAON", name: "PINKU KUMAR", address: "WARD NO-20, DHING GATE, NEAR JAMME MASJID NAWGAON- 782002", contacts: "7003974234 / 9706538629" },
-      { location: "LANKA", name: "BISWAJEET KUNDU", address: "NEAR LAQNKESHWARI MANDIR, LANKA, HOJAI- 782446", contacts: "7002783573" },
-      { location: "HOJAI", name: "BISWAJEET KUNDU", address: "THAKURBARI ROAD, NEAR SHANTINIKETAN HOSTEL, KRISHNA NAGAR, HOJAI- 782435", contacts: "7002783573" },
+      { location: "NAWGAON", name: "BAPPI DUTTA", address: "WARD NO-20, DHING GATE, NEAR JAMME MASJID NAWGAON- 782002", contacts: "7002463948" },
+      { location: "LANKA", name: "BISWAJEET KUNDU", address: "NEAR LAQNKESHWARI MANDIR, LANKA, HOJAI-782446", contacts: "7002783573" },
+      { location: "HOJAI", name: "BISWAJEET KUNDU", address: "THAKURBARI ROAD, NEAR SHANTINIKETAN HOSTEL,KRISHNA NAGAR, HOJAI- 782435", contacts: "7002783573" },
       { location: "DUDHNAI", name: "", address: "", contacts: "" },
-      { location: "MOIRABARI", name: "", address: "", contacts: "" },
-      { location: "NAGERBERA", name: "ABDUS SALAM", address: "NEAR NAGERBERA POLICE STATION, NAGERBERA- 781127", contacts: "9101117231" },
-      { location: "BUNI", name: "", address: "", contacts: "" },
-      { location: "LAKHIPUR", name: "SHORIFUL ALAM", address: "WARD NO 4 HALUAPARA ROAD, LAKHIPUR -783129", contacts: "7896553658" },
+      { location: "MOIRABARI", name: "BAPPI DUTTA", address: "UNDER NAWGAON BAPPI DUTTA", contacts: "7002463948" },
+      { location: "NAGERBERA", name: "ABDUS SALAM", address: "NEAR NAGERBERA POLICE STATION,NAGERBERA- 781127", contacts: "9101117231" },
+      { location: "BIJNI", name: "MANIK DEBNATH", address: "UNDER BONGAIGAON MANIK DEBNATH", contacts: "9954358485" },
+      { location: "LAKHIPUR", name: "SHORIFUL ALAM", address: "WARD NO 4 HALUAPARA ROAD, LAKHIPUR -783129 (UNDER ZAKIR HUSSAIN HATSINGHMARI )", contacts: "7896553658" },
       { location: "GAIBANDA", name: "EHSAN ALI", address: "GAIBANDA MARKET", contacts: "6002829412" },
-      { location: "FULBARI", name: "", address: "", contacts: "" },
+      { location: "FULBARI", name: "ZAKIR HUSSAIN", address: "FULBARI UNDER ZAKIR HUSSAIN HATSINGHMARI", contacts: "8638876093" },
+      { location: "JORHAT", name: "", address: "", contacts: "" },
     ],
   };
 
@@ -91,12 +198,15 @@ const Network = () => {
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="relative z-10 text-center text-white px-6 max-w-4xl">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight">Our Network</h1>
-          <p className="text-xl md:text-2xl font-light opacity-90">Extensive reach across India with delivery offices</p>
+          <p className="text-xl md:text-2xl font-light opacity-90">Extensive reach across India with delivery offices and booking hubs</p>
           <div className="mt-6 h-1 w-32 bg-[#E61316] mx-auto rounded-full"></div>
         </motion.div>
       </section>
 
-      {/* Delivery Network */}
+      
+      
+
+      {/* --- DELIVERY NETWORK (Existing Section) --- */}
       <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-16 bg-[#F4F4F8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
@@ -127,6 +237,64 @@ const Network = () => {
               </div>
             </div>
           ))}
+        </div>
+      </motion.section>
+      <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-extrabold text-[#25257B] mb-3">Booking Hubs</h2>
+            <p className="text-gray-600 mb-10 text-lg">Central locations for material booking and drop-off</p>
+            <div className="h-1 w-48 bg-[#25257B] mx-auto mb-10 rounded-full"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {Object.entries(bookingHubs).map(([hubKey, locations]) => (
+              <div key={hubKey} className="bg-[#F4F4F8] p-6 rounded-xl shadow-lg border border-gray-200">
+                <h3 className="text-2xl font-extrabold text-[#E61316] mb-6 border-b pb-3 border-[#E61316]/30">
+                  {hubKey.replace(/([A-Z])/g, ' $1').trim().toUpperCase()}
+                </h3>
+
+                <div className="space-y-6">
+                  {locations.map((location, locIndex) => (
+                    <div key={locIndex} className="bg-white p-5 rounded-lg shadow-md border border-gray-100">
+                      <p className="text-lg font-bold text-[#25257B] mb-2">{location.title}</p>
+                      
+                      <div className='mb-3'>
+                        <span className="text-sm font-semibold text-gray-500 block">Address:</span>
+                        <p className="text-gray-700">{location.address}</p>
+                      </div>
+
+                      <div className='mb-3'>
+                        <span className="text-sm font-semibold text-gray-500 block">Contact:</span>
+                        <ul className='list-disc list-inside space-y-1 ml-4'>
+                          {location.contacts.map((contact, contactIndex) => (
+                            <li key={contactIndex} className='text-sm text-gray-800'>
+                              <span className='font-medium'>{contact.name}:</span> {contact.number}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <span className="text-sm font-semibold text-gray-500 block">Booking Stations:</span>
+                        {Array.isArray(location.bookingStations) ? (
+                            <p className="text-gray-700 text-sm italic">{location.bookingStations.join(', ')}</p>
+                        ) : (
+                            <div className='mt-1'>
+                                {Object.entries(location.bookingStations).map(([region, stations]) => (
+                                    <p key={region} className='text-xs text-gray-600 mt-1'>
+                                        <span className='font-semibold text-gray-800'>{region}:</span> {stations.join(', ')}
+                                    </p>
+                                ))}
+                            </div>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.section>
 
