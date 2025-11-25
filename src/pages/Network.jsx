@@ -203,42 +203,7 @@ const Network = () => {
         </motion.div>
       </section>
 
-      
-      
 
-      {/* --- DELIVERY NETWORK (Existing Section) --- */}
-      <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-16 bg-[#F4F4F8]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl font-extrabold text-[#E61316] mb-3">Delivery Network</h2>
-            <p className="text-gray-600 mb-10 text-lg">Click any location to view contact details</p>
-            <div className="h-1 w-48 bg-[#E61316] mx-auto mb-10 rounded-full"></div>
-          </div>
-
-          {deliveryRegions.map((region) => (
-            <div key={region} className="mb-16">
-              <h3 className="text-3xl font-bold text-[#E61316] mb-8 text-center bg-white py-4 rounded-lg shadow-sm border border-red-100">
-                {regionDisplayName(region)}
-              </h3>
-
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-                {offices[region].map((office, index) => (
-                  <motion.button
-                    key={index}
-                    variants={childVariants}
-                    whileHover={{ scale: 1.06, backgroundColor: "#E61316" }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setSelectedLocation(office)}
-                    className="bg-white hover:bg-[#E61316] text-[#E61316] hover:text-white font-bold py-5 px-4 rounded-xl shadow-lg border-2 border-[#E61316]/20 transition-all duration-300"
-                  >
-                    <span className="block text-sm leading-tight">{office.location}</span>
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </motion.section>
       <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }} className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
@@ -297,6 +262,44 @@ const Network = () => {
           </div>
         </div>
       </motion.section>
+
+      
+      
+
+      {/* --- DELIVERY NETWORK (Existing Section) --- */}
+      <motion.section variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="py-16 bg-[#F4F4F8]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <h2 className="text-4xl font-extrabold text-[#E61316] mb-3">Delivery Network</h2>
+            <p className="text-gray-600 mb-10 text-lg">Click any location to view contact details</p>
+            <div className="h-1 w-48 bg-[#E61316] mx-auto mb-10 rounded-full"></div>
+          </div>
+
+          {deliveryRegions.map((region) => (
+            <div key={region} className="mb-16">
+              <h3 className="text-3xl font-bold text-[#E61316] mb-8 text-center bg-white py-4 rounded-lg shadow-sm border border-red-100">
+                {regionDisplayName(region)}
+              </h3>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
+                {offices[region].map((office, index) => (
+                  <motion.button
+                    key={index}
+                    variants={childVariants}
+                    whileHover={{ scale: 1.06, backgroundColor: "#E61316" }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setSelectedLocation(office)}
+                    className="bg-white hover:bg-[#E61316] text-[#E61316] hover:text-white font-bold py-5 px-4 rounded-xl shadow-lg border-2 border-[#E61316]/20 transition-all duration-300"
+                  >
+                    <span className="block text-sm leading-tight">{office.location}</span>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </motion.section>
+      
 
       {/* Sliding Panel - Cross button fixed perfectly */}
       <AnimatePresence>

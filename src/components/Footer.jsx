@@ -115,7 +115,21 @@ const Footer = () => {
                   href="tel:+919088988812"
                   className="text-[#FBFAFB] hover:text-[#E61316] transition duration-200"
                 >
-                  +91 90889 88812 +91 90887 88812 
+                  +91 90889 88812
+                </a>
+              </motion.li>
+              <motion.li
+                variants={footerLinkVariants}
+                initial="initial"
+                whileHover="hover"
+                className="flex items-center justify-center md:justify-start"
+              >
+                <FaPhone className="mr-2 text-[#E61316]" />
+                <a
+                  href="tel:+919088788812"
+                  className="text-[#FBFAFB] hover:text-[#E61316] transition duration-200"
+                >
+                  +91 90887 88812
                 </a>
               </motion.li>
 
