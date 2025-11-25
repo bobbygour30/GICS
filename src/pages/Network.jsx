@@ -113,6 +113,7 @@ const Network = () => {
   { location: "GULABBAGH", name: "AJAY YADAV", address: "SONALI CHOWK MOHANLAL BAJAJ GIRL SCHOOL GULABBAGH", contacts: "7870141478" },
   { location: "JAYNAGAR", name: "", address: "", contacts: "" },
   { location: "KHAGARIA", name: "VISHVANATH KUMAR SINGH", address: "BY PASS ROAD NEAR SURYA MANDIR KHAGARIA – 851204", contacts: "MITHU GODOWN – 9973372111" },
+  { location: "KATIHAR", name: "", address: "", contacts: "" },
   { location: "KISHANGANJ", name: "RAJKUMAR MONDAL", address: "SANCHALAL, BARELA COMPLEX, CALTAX CHOWK, 3 NO. RAIL GATE, BIHAR-855107", contacts: "7604021111 / 7488744522" },
   { location: "MADHEPURA", name: "DHARMENDRA KUMAR", address: "PURAB BY PASS ROAD, NEAR KESHAB KANEYA VIDYALAYA, BIHAR-852113", contacts: "7352321467" },
   { location: "MURLIGANJ", name: "HEMANT KUMAR", address: "KASHIPUR ROAD NEAR CENTRAL BANK MURLIGANJ", contacts: "7979011745" },
