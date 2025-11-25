@@ -112,7 +112,7 @@ const Footer = () => {
               >
                 <FaPhone className="mr-2 text-[#E61316]" />
                 <a
-                  href="tel:+919350167349"
+                  href="tel:+919088988812"
                   className="text-[#FBFAFB] hover:text-[#E61316] transition duration-200"
                 >
                   +91 90889 88812 +91 90887 88812 
@@ -127,7 +127,7 @@ const Footer = () => {
               >
                 <FaEnvelope className="mr-2 text-[#E61316]" />
                 <a
-                  href="mailto:info.grlogistics@gmail.com"
+                  href="mailto:gics0786@gmail.com"
                   className="text-[#FBFAFB] hover:text-[#E61316] transition duration-200"
                 >
                   gics0786@gmail.com
